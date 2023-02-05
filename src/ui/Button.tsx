@@ -11,16 +11,20 @@ export interface ButtonProps
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, isLoading, onClick, children, Icon, ...buttonProps },
+    { className = " ", onClick, children, Icon },
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null);
     useImperativeHandle(ref, () => buttonRef.current);
 
     return (
-      <button className="" ref={buttonRef} onClick={onClick}>
-        <span>{Icon && <Icon className="" />}</span>
-        <span>{children}</span>
+      <button
+        className={` flex items-center justify-center p-3  hover:bg-gray-200 md:justify-start md:p-4 ${className} `}
+        ref={buttonRef}
+        onClick={onClick}
+      >
+        <span>{Icon && <Icon className="mr-4 " size={23} />}</span>
+        <span className="hidden md:block">{children}</span>
       </button>
     );
   }
