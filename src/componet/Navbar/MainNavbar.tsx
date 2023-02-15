@@ -1,45 +1,21 @@
-import Button from "../../ui/Button";
-import Logo from "./Logo";
-import {
-  AiOutlineMessage,
-  AiOutlinePlus,
-  AiOutlineSetting,
-  AiOutlineUser,
-} from "react-icons/ai";
 import { useState } from "react";
-import ProjectIcon from "../Project/ProjectItem";
+import {NavbarContainer, Logo, BottomNavOptions} from "."
+import {ProjectContainer, NoProject, AllProjects} from "../Project"
 
 const MainNavbar = () => {
-  const [noProject, setNoProject] = useState(false);
+  const [noProject] = useState(false);
   return (
-    <nav className="flex h-full flex-col justify-between p-2">
+    <NavbarContainer>
       <Logo />
-      <div className=" mb-4 mt-6 h-full w-full overflow-scroll border-t border-gray-400 pt-3">
+        <ProjectContainer>
         {noProject ? (
-          <p className="text-center text-gray-500">NO PROJECT</p>
+          <NoProject />
         ) : (
-          <>
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-            <ProjectIcon />
-          </>
+          <AllProjects />
         )}
-      </div>
-      <div className="flex flex-col border-t">
-        <Button Icon={AiOutlinePlus}>Create Project</Button>
-        <Button Icon={AiOutlineUser}>Sign in</Button>
-        <Button Icon={AiOutlineSetting}>Settings</Button>
-        <Button Icon={AiOutlineMessage}>Faq</Button>
-      </div>
-    </nav>
+        </ProjectContainer>
+      <BottomNavOptions />
+    </NavbarContainer>
   );
 };
 

@@ -7,7 +7,7 @@ interface Props {
 
 const Root = ({ children }: Props) => {
   return (
-    <div className="flex h-screen w-full">
+    <div className="flex h-screen w-full scrollbar-hide">
       <div className="max-w-xs border shadow-lg  md:w-full ">
         <MainNavbar />
       </div>
