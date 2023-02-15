@@ -11,7 +11,7 @@ const Root = ({ children }: Props) => {
       <div className="max-w-xs border shadow-lg  md:w-full ">
         <MainNavbar />
       </div>
-      <div className="">{children}</div>
+      <div className="w-full">{children}</div>
     </div>
   );
 };
